@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | LoanWise PH Educational Awareness
+  
+</title>
+<meta name="description" content="Where to report suspicious online lending in the Philippines.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site"><div class="container">
+<a class="brand" href="index.html"><img src="logo.svg" alt="" width="40" height="40">LoanWise PH</a>
+<nav aria-label="Main navigation"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html" aria-current="page">Contact</a></li></ul></nav>
+</div></header>
+<main id="main">
+<div class="page-title"><div class="container"><h1>Need help? Know where to report</h1><p>If you meet suspicious lending activity, harassment, or misuse of your personal information, contact the right agency.</p></div></div>
+<div class="container"><div class="card-panel" style="margin-top:-3rem">
+<div class="grid2"><article class="agency"><h3>Securities and Exchange Commission (SEC)</h3><p>Complaints about lending and financing companies and their online lending platforms.</p><a class="btn btn-dark" href="https://www.sec.gov.ph/" target="_blank" rel="noopener">Visit SEC website</a></article><article class="agency"><h3>National Privacy Commission (NPC)</h3><p>Unauthorized access, misuse, and disclosure of personal information.</p><a class="btn btn-dark" href="https://privacy.gov.ph/" target="_blank" rel="noopener">Visit NPC website</a></article><article class="agency"><h3>PNP Anti-Cybercrime Group</h3><p>Cybercrime reports and investigations.</p><a class="btn btn-dark" href="https://acg.pnp.gov.ph/" target="_blank" rel="noopener">Visit PNP ACG website</a></article><article class="agency"><h3>PAOCC online lending complaints</h3><p>Threats and harassment by online lending apps, as shown on PAOCC&rsquo;s public poster.</p><p><a href="mailto:onlinelendingcomplaints2025@gmail.com">onlinelendingcomplaints2025@gmail.com</a><br>Phone: 0995 427 7218</p></article></div>
+<p class="quote" style="margin-top:1.5rem">Your financial safety matters. Stay informed, protect your information, and report possible abuses.</p>
+<h2 style="margin-top:1.8rem">Send us feedback</h2>
+<form id="fb">
+<div><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+<div><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+
+<div><label for="message">Your message</label><textarea id="message" name="message" rows="5"></textarea></div>
+<div><button class="btn btn-primary" type="submit">Send feedback</button></div>
+</form>
+ 
+   
+</div></div>
+</main>
+<dialog id="thanks" aria-labelledby="thanksTitle">
+<h2 id="thanksTitle">Thank you!</h2>
+<p id="thanksText"></p>
+<button class="btn btn-primary" id="thanksClose" type="button">Close</button>
+</dialog>
+<footer><div class="container">
+<p>&copy; 2026 LoanWise PH. All Rights Reserved.</p>
+<p> Poster credits are on the <a href="gallery.html">Gallery</a> page.</p>
+</div></footer>
+<script>
+var dlg=document.getElementById("thanks");
+document.getElementById("fb").addEventListener("submit",function(e){
+e.preventDefault();
+if(!this.checkValidity()){this.reportValidity();return;}
+var name=document.getElementById("name").value.trim().split(" ")[0];
+document.getElementById("thanksText").textContent="Thank you, "+name+"! Your feedback has been submitted. We appreciate you helping spread awareness about safe borrowing.";
+this.reset();
+if(dlg.showModal){dlg.showModal();}else{dlg.setAttribute("open","");}
+});
+document.getElementById("thanksClose").addEventListener("click",function(){dlg.close();});
+</script>
+</body>
+</html>

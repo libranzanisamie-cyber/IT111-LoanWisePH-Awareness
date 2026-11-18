@@ -1,0 +1,443 @@
+/* =====================================
+   LoanWise PH
+   DNSC-Inspired Layout
+   Blue and Yellow Theme
+===================================== */
+
+/* 1. ROOT VARIABLES */
+:root {
+    --nav: navy;
+    --deep: midnightblue;
+    --mint: gold;
+    --leaf: royalblue;
+    --sky: royalblue;
+    --sun: gold;
+    --alert: crimson;
+
+    --page: white;
+    --card: aliceblue;
+    --ink: #1d2433;
+    --muted: dimgray;
+
+    --r: 16px;
+}
+
+/* 2. GENERAL STYLES */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background: var(--page);
+    line-height: 1.65;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a { color: navy; }
+
+/* 3. FOCUS AND ACCESSIBILITY */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--sun);
+    outline-offset: 3px;
+}
+
+.skip {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: gold;
+    color: black;
+    padding: .6rem 1rem;
+    z-index: 99;
+}
+
+.skip:focus { left: 0; }
+
+/* 4. CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* 5. HEADER AND NAVIGATION */
+header.site {
+    background: var(--nav);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header.site .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: .7rem 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.brand img { width: 36px; height: 36px; }
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: .3rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: .95rem;
+    padding: .4rem .9rem;
+    border-radius: 6px;
+}
+
+nav a:hover { background: rgba(255, 255, 255, .15); }
+
+nav a[aria-current="page"] {
+    background: var(--mint);
+    color: var(--deep);
+}
+
+/* 6. HERO AND PAGE TITLE */
+.hero,
+.page-title {
+    color: white;
+    background: linear-gradient(135deg, navy 0%, royalblue 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after,
+.page-title::after {
+    content: "";
+    position: absolute;
+    right: -90px;
+    top: -90px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, .22);
+}
+
+.hero .container,
+.page-title .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero { padding: 4rem 0 7rem; }
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.hero h1,
+.page-title h1 {
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 .8rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, .4);
+}
+
+.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+
+.hero .sub {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.15rem;
+    max-width: 30em;
+}
+
+.page-title { padding: 3rem 0 5.5rem; }
+
+.page-title h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+
+.page-title p {
+    margin: 0;
+    max-width: 40em;
+    font-style: italic;
+    font-weight: 700;
+}
+
+/* 7. BUTTONS */
+.btn {
+    display: inline-block;
+    border: 2px solid transparent;
+    border-radius: 99px;
+    padding: .65rem 1.4rem;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    margin: .3rem .4rem .3rem 0;
+}
+
+.btn-outline { background: transparent; color: white; border-color: white; }
+.btn-primary { background: var(--sun); color: var(--deep); }
+.btn-dark { background: var(--nav); color: white; }
+.btn:hover { filter: brightness(1.1); }
+
+/* 8. SMS PREVIEW */
+.sms {
+    background: white;
+    color: var(--ink);
+    border-radius: 20px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .3);
+    max-width: 360px;
+    justify-self: center;
+}
+
+.sms small { color: var(--muted); display: block; margin-bottom: .4rem; }
+
+.sms .bubble {
+    background: gainsboro;
+    border-radius: 14px;
+    padding: .8rem;
+    font-size: .95rem;
+}
+
+.sms .flags {
+    margin: .8rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: .35rem;
+}
+
+.sms .flags li {
+    background: mistyrose;
+    color: darkred;
+    border-left: 5px solid var(--alert);
+    padding: .3rem .6rem;
+    border-radius: 6px;
+    font-size: .88rem;
+    font-weight: 700;
+}
+
+/* 9. CARDS AND SECTIONS */
+.card-panel {
+    background: var(--card);
+    box-shadow: 0 8px 24px rgba(10, 61, 145, .12);
+    border-radius: 24px;
+    margin-top: -4.5rem;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+section { padding: 2rem 0; }
+
+h2 { font-size: 1.8rem; color: navy; margin: 0 0 .6rem; }
+h3 { color: var(--nav); margin: .2rem 0 .4rem; }
+
+.center { text-align: center; }
+
+.card-panel p.center {
+    color: var(--muted);
+    max-width: 42em;
+    margin-inline: auto;
+}
+
+/* 10. GRID LAYOUTS */
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+
+/* 11. FEATURES */
+.feature {
+    background: white;
+    border-radius: var(--r);
+    padding: 1.3rem;
+    border-top: 6px solid var(--leaf);
+}
+
+.feature:nth-child(2) { border-color: var(--sun); }
+.feature:nth-child(3) { border-color: var(--alert); }
+.feature .big { font-size: 1.4rem; font-weight: 800; color: var(--nav); }
+
+/* 12. QUOTE AND ALERTS */
+.quote {
+    background: var(--nav);
+    color: white;
+    border-radius: var(--r);
+    padding: 1.4rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.redflags { list-style: none; padding: 0; }
+
+.redflags li {
+    background: white;
+    border-left: 6px solid var(--alert);
+    padding: .6rem 1rem;
+    border-radius: 8px;
+    margin: .5rem 0;
+}
+
+/* 13. CHECKLIST */
+.checklist li { margin: .4rem 0; }
+
+/* 14. TABLE */
+.table-wrap { overflow-x: auto; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+}
+
+caption { text-align: left; font-weight: 800; padding: .5rem 0; color: var(--nav); }
+
+th,
+td {
+    text-align: left;
+    padding: .7rem .9rem;
+    border-bottom: 1px solid lightgray;
+}
+
+th { background: var(--nav); color: white; }
+
+/* 15. GALLERY */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+
+.gallery figure {
+    margin: 0;
+    background: white;
+    border-radius: var(--r);
+    overflow: hidden;
+}
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: gainsboro;
+}
+
+.gallery figcaption { padding: .8rem 1rem 1rem; }
+.gallery figcaption strong { display: block; color: var(--nav); }
+.gallery .credit { font-size: .82rem; color: var(--muted); }
+
+/* 16. AGENCY */
+.agency {
+    background: white;
+    border-radius: var(--r);
+    padding: 1.3rem;
+    border-left: 8px solid var(--mint);
+}
+
+.agency p { margin: .2rem 0 .6rem; }
+
+/* 17. FORMS */
+form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--r);
+    display: grid;
+    gap: 1rem;
+}
+
+label { font-weight: 700; display: block; margin-bottom: .25rem; }
+
+input,
+textarea {
+    width: 100%;
+    font: inherit;
+    padding: .7rem;
+    border: 2px solid darkgray;
+    border-radius: 8px;
+}
+
+/* 18. THANK YOU POPUP */
+dialog {
+    border: 0;
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: min(420px, 90vw);
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
+    border-top: 8px solid var(--sun);
+}
+
+dialog::backdrop { background: rgba(8, 43, 102, .65); }
+dialog h2 { color: var(--nav); margin: 0 0 .5rem; }
+
+/* 19. NOTICE */
+.notice {
+    background: cornsilk;
+    border-left: 6px solid var(--sun);
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+}
+
+/* 20. FOOTER */
+footer {
+    background: var(--nav);
+    color: white;
+    text-align: center;
+    padding: 1.4rem 0;
+    margin-top: 2rem;
+    font-size: .92rem;
+}
+
+footer p { margin: .2rem 0; }
+footer a { color: var(--mint); }
+
+/* 21. RESPONSIVE DESIGN */
+@media (max-width: 800px) {
+    .hero .container,
+    .grid3,
+    .grid2,
+    .gallery { grid-template-columns: 1fr; }
+
+    .hero { padding-bottom: 6rem; }
+    .card-panel { padding: 1.2rem; }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* 22. REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
